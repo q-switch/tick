@@ -1,29 +1,20 @@
-# InfluxData Sandbox
+# syslog server container with rsyslog, TICK-stack and grafana
 
-This repo is a quick way to get the entire TICK Stack spun up and working together. It uses [Docker](https://www.docker.com/) to spin up the full TICK stack in a connected fashion. This is heavily tested on MacOS and should mostly work on Linux and Windows.
+This repo combines rsyslog in server configuration with influxdata tick stack and grafana.
 
-To get started you need a running docker installation. If you don't have one, you can download Docker for [Mac](https://www.docker.com/docker-mac) or [Windows](https://www.docker.com/docker-windows), or follow the installation instructions for Docker CE for your [Linux distribution](https://docs.docker.com/engine/installation/#server).
+
+The components are merged from:
+
+- [Influxdata Sandbox](https://github.com/influxdata/sandbox)
+- [rsyslog rsyslog-docker](https://github.com/rsyslog/rsyslog-docker) 
+- [grafana docker image](https://hub.docker.com/r/grafana/grafana)
 
 ### Running
 
-To run the `sandbox`, simply use the convenient cli:
+To run the `server`, simply use docker-compose up 
 
-```bash
-$ ./sandbox
-sandbox commands:
-  up           -> spin up the sandbox environment (add -nightly to grab the latest nightly builds of InfluxDB and Chronograf)
-  down         -> tear down the sandbox environment
-  restart      -> restart the sandbox
-  influxdb     -> attach to the influx cli
-  flux         -> attach to the flux REPL
 
-  enter (influxdb||kapacitor||chronograf||telegraf) -> enter the specified container
-  logs  (influxdb||kapacitor||chronograf||telegraf) -> stream logs for the specified container
 
-  delete-data  -> delete all data created by the TICK Stack
-  docker-clean -> stop and remove all running docker containers
-  rebuild-docs -> rebuild the documentation container to see updates
-```
 
 To get started just run `./sandbox up`. You browser will open two tabs:
 

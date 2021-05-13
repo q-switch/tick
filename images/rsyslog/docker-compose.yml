@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rsyslog:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: "rsyslog"
+    volumes:
+      # Mount named volumes
+      - rsyslog_config:/config
+      - rsyslog_work:/work
+      - rsyslog_logs:/logs
+    ports:
+      # rsyslog accepts from port 514
+      - "514:514/tcp"
+      - "514:514/udp"
+
+volumes:
+  rsyslog_config:
+  rsyslog_work:
+  rsyslog_logs:
